@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "http://localhost:3000/api/";
+const API_URL = "http://18.185.46.151:3000/api/";
 
 const getPublicContent = () => {
   return axios.get(API_URL + "content");
