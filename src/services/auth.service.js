@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://sleepy-dijkstra-346ed9.netlify.app/api/auth/";
+const API_URL = "http://18.185.46.151:3000/auth/";
 
 const register = (username, email, password) => {
   return axios.post(API_URL + "signup", {
