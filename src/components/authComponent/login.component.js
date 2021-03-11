@@ -69,15 +69,27 @@ const Login = (props) => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      dispatch(login(username, password))
-        .then(() => {
-          props.history.push("/profile");
-          window.location.reload();
+
+      fetch('http://18.185.46.151:3000/api/auth/signin', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          username: this.state.username,
+          password: this.state.password
         })
-        .catch(() => {
+      })
+        .then(response => response.json())
+        .then(data => localStorage.setItem('user', JSON.stringify(data)))
+        .catch(err => {
+          console.log(err)
           setLoading(false);
-        });
-    } else {
+        })
+      }
+    else{
       setLoading(false);
     }
   };
