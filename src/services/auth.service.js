@@ -19,7 +19,7 @@ const register = (username, email, password) => {
 
 const login = (username, password) => {
 
-  /*return axios
+  return axios
     .post(API_URL + "signin", 
     {
       username,
@@ -30,22 +30,8 @@ const login = (username, password) => {
             localStorage.setItem("user", JSON.stringify(res.data));
         }
         return res.data;
-    });*/
-
-    return fetch('http://18.185.46.151:3000/api/auth/signin', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include'
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      return data
-    })
-    .catch(err => console.log(err))
+    });
+    
 };
 
 const logout = () => {
