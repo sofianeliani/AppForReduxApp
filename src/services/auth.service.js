@@ -22,20 +22,40 @@ const register = (username, email, password) => {
 
 
 const login = (username, password) => {
+      return fetch('http://18.185.46.151:3000/api/auth/signin', 
+      {
+        username,
+        password,
+      },
+      {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(userCredentials)
+        })
+        .then(response => response.json())
+        .then(data => localStorage.setItem('user', JSON.stringify(data)))
+        .catch(err => {
+          console.log(err)
+          setLoading(false);
+        })
+      }
 
-  return axios
-    .post(API_URL + "signin", 
-    {
-      username,
-      password,
-    }, options)
-    .then(res => {
-        if(res.data.accessToken) {
-            localStorage.setItem("user", JSON.stringify(res.data));
-        }
-        return res.data;
-    });
-};
+  // return axios
+  //   .post(API_URL + "signin", 
+  //   {
+  //     username,
+  //     password,
+  //   }, options)
+  //   .then(res => {
+  //       if(res.data.accessToken) {
+  //           localStorage.setItem("user", JSON.stringify(res.data));
+  //       }
+  //       return res.data;
+  //   });
 
 const logout = () => {
   localStorage.removeItem("user");
