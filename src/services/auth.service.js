@@ -25,12 +25,10 @@ const login = (username, password) => {
       username,
       password,
     }, {
-    method: 'POST',
     headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Access-Control-Allow-Origin': '*',
     },
-    credentials: 'include'
+    credentials: true
     })
     .then(res => {
         if(res.data.accessToken) {
