@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL = "http://18.185.46.151/auth/";
 
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+
 
 const headers = {
   'Content-Type': 'application/json',
@@ -26,7 +26,8 @@ const login = (username, password) => {
     {
       username,
       password,
-    }, {withCredentials: 'include'})
+    }, axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
+    )
     .then(res => {
         if(res.data.accessToken) {
             localStorage.setItem("user", JSON.stringify(res.data));
