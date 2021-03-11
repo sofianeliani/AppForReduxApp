@@ -30,8 +30,7 @@ const login = (username, password) => {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    credentials: 'include',
-    body: JSON.stringify(userCredentials)
+    credentials: 'include'
     })
     .then(res => {
         if(res.data.accessToken) {
