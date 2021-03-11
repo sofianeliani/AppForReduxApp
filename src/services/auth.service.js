@@ -4,8 +4,7 @@ const API_URL = "http://18.185.46.151/auth/";
 
 const headers = {
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Access-Control-Allow-Origin': '*'
+  'Accept': 'application/json'
 };
 
 
@@ -17,9 +16,6 @@ const register = (username, email, password) => {
   }, headers)
 };
 
-const login2 = (username, password) => {
-
-}
 
 const login = (username, password) => {
 
