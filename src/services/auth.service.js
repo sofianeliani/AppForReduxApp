@@ -5,9 +5,7 @@ const API_URL = "http://18.185.46.151/auth/";
 const options = {
   headers: {
     'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    credential: 'include'
+    'Accept': 'application/json'
   }
 };
 
@@ -36,12 +34,12 @@ const login = (username, password) => {
         credentials: 'include',
         body: JSON.stringify(userCredentials)
         })
-        .then(response => response.json())
-        .then(data => localStorage.setItem('user', JSON.stringify(data)))
-        .catch(err => {
-          console.log(err)
-          setLoading(false);
-        })
+        .then(res => {
+          if(res.data.accessToken) {
+            localStorage.setItem("user", JSON.stringify(res.data));
+          }
+          return res.data;
+        });
       }
 
   // return axios
