@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 
@@ -19,7 +19,6 @@ const required = (value) => {
 };
 
 const Login = (props) => {
-
   const form = useRef();
   const checkBtn = useRef();
 
@@ -42,31 +41,7 @@ const Login = (props) => {
     setPassword(password);
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    // let userCredentials = {
-    //   username: username,
-    //   password: password
-    // }
-
-    setLoading(true);
-
-    form.current.validateAll();
-
-    if (checkBtn.current.context._errors.length === 0) {
-    dispatch(login(username, password))
-      .then(() => {
-        props.history.push("/profile");
-        window.location.reload();
-      })
-      .catch(() => {
-        setLoading(false);
-      });
-    } else {
-      setLoading(false);
-    }
-  //     fetch('http://18.185.46.151:3000/api/auth/signin', {
+    //     fetch('http://18.185.46.151:3000/api/auth/signin', {
   //       method: 'POST',
   //       headers: {
   //         'Accept': 'application/json',
@@ -85,6 +60,26 @@ const Login = (props) => {
   //   else{
   //     setLoading(false);
   //   }
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    form.current.validateAll();
+
+    if (checkBtn.current.context._errors.length === 0) {
+      dispatch(login(username, password))
+        .then(() => {
+          props.history.push("/profile");
+          window.location.reload();
+        })
+        .catch(() => {
+          setLoading(false);
+        });
+    } else {
+      setLoading(false);
+    }
   };
 
   if (isLoggedIn) {
@@ -92,7 +87,6 @@ const Login = (props) => {
   }
 
   return (
-
     <div className="container">
       <div className="lg:flex">
             <div className="lg:w-1/2 xl:max-w-screen-sm">
@@ -197,6 +191,7 @@ const Login = (props) => {
                 </div>
             </div>
         </div>
+      
 
     </div>
   );
