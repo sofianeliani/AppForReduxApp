@@ -46,8 +46,8 @@ const Login = (props) => {
     e.preventDefault();
 
     let userCredentials = {
-      username: this.state.username,
-      password: this.state.password
+      username: username,
+      password: password
     }
 
     setLoading(true);
