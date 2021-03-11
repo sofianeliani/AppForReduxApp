@@ -3,7 +3,7 @@ export default function authHeader() {
   
     if (user && user.accessToken) {
         
-      return { 'x-access-token': user.accessToken };
+      return { 'x-access-token': user.accessToken, 'Access-Control-Allow-Origin': '*' };
     } else {
       return {};
     }
