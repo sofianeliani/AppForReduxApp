@@ -24,14 +24,14 @@ const login = (username, password) => {
     {
       username,
       password,
-    }, headers)
+    }, {withCredentials: true})
     .then(res => {
         if(res.data.accessToken) {
             localStorage.setItem("user", JSON.stringify(res.data));
         }
         return res.data;
     });
-    
+
 };
 
 const logout = () => {
