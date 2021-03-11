@@ -14,12 +14,10 @@ const login = (username, password) => {
   return axios
     .post(API_URL + "signin", 
     {
-      'Access-Control-Allow-Origin': '*',
-    },
-    
-    {
       username,
       password,
+    }, {
+      'Access-Control-Allow-Origin': '*',
     })
     .then(res => {
         if(res.data.accessToken) {
