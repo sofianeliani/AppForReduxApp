@@ -45,7 +45,10 @@ const Login = (props) => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    let self = this;
+    let userCredentials = {
+      username: this.state.username,
+      password: this.state.password
+    }
 
     setLoading(true);
 
@@ -60,10 +63,7 @@ const Login = (props) => {
           'Content-Type': 'application/json'
         },
         credentials: 'include',
-        body: JSON.stringify({
-          username: self.state.username,
-          password: self.state.password
-        })
+        body: JSON.stringify(userCredentials)
       })
         .then(response => response.json())
         .then(data => localStorage.setItem('user', JSON.stringify(data)))
