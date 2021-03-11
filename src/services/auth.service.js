@@ -8,7 +8,7 @@ const headers = {
 };
 
 const instance = axios.create({
-  withCredentials: true,
+  withCredentials: 'include',
   baseURL: API_URL
 })
 
