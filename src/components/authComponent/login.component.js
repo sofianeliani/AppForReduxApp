@@ -45,6 +45,8 @@ const Login = (props) => {
   const handleLogin = (e) => {
     e.preventDefault();
 
+    let self = this;
+
     setLoading(true);
 
     form.current.validateAll();
@@ -59,8 +61,8 @@ const Login = (props) => {
         },
         credentials: 'include',
         body: JSON.stringify({
-          username: this.state.username,
-          password: this.state.password
+          username: self.state.username,
+          password: self.state.password
         })
       })
         .then(response => response.json())
