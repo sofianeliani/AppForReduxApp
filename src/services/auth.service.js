@@ -5,7 +5,7 @@ const API_URL = "http://18.185.46.151/auth/";
 const headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
-  'Access-Control-Allow-Origin: *'
+  'Access-Control-Allow-Origin': '*'
 };
 
 
