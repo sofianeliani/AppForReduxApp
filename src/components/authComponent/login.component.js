@@ -42,25 +42,6 @@ const Login = (props) => {
     setPassword(password);
   };
 
-  useEffect(() => {
-    let user = {
-      username: 'test',
-      password: 'test'
-    }
-    fetch('http://18.185.46.151:3000/api/auth/signin', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include',
-      body: JSON.stringify(user)
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
-  })
-
   const handleLogin = (e) => {
     e.preventDefault();
 
