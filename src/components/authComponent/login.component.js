@@ -64,7 +64,11 @@ const Login = (props) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+    let userCredentials = {
+      username: this.state.username,
+      password: this.state.password
+    }
+    
     setLoading(true);
 
     form.current.validateAll();
