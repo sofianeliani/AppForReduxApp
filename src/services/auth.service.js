@@ -2,12 +2,21 @@ import axios from "axios";
 
 const API_URL = "http://18.185.46.151/auth/";
 
+const headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Access-Control-Allow-Origin: *'
+};
+
+
 const register = (username, email, password) => {
   return axios.post(API_URL + "signup", {
     username,
     email,
     password,
-  });
+  }, {
+    headers
+  })
 };
 
 const login = (username, password) => {
@@ -17,7 +26,7 @@ const login = (username, password) => {
       username,
       password,
     }, {
-      'Access-Control-Allow-Origin': '*',
+      headers
     })
     .then(res => {
         if(res.data.accessToken) {
