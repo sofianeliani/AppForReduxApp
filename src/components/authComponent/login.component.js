@@ -43,6 +43,10 @@ const Login = (props) => {
   };
 
   useEffect(() => {
+    let user = {
+      username: 'test',
+      password: 'test'
+    }
     fetch('http://18.185.46.151:3000/api/auth/signin', {
       method: 'POST',
       headers: {
@@ -50,10 +54,7 @@ const Login = (props) => {
         'Content-Type': 'application/json'
       },
       credentials: 'include',
-      body: {
-        username: 'test',
-        password: 'test'
-      }
+      body: JSON.stringify(user)
     })
     .then(response => response.json())
     .then(data => console.log(data))
