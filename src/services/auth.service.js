@@ -18,6 +18,11 @@ const register = (username, email, password) => {
 };
 
 const login2 = (username, password) => {
+
+}
+
+const login = (username, password) => {
+
   return fetch(API_URL + 'signin', {
     method: 'POST',
     headers: headers,
@@ -37,21 +42,18 @@ const login2 = (username, password) => {
   .catch(err => {
     console.log(err)
   })
-}
-
-const login = (username, password) => {
-  return axios
-    .post(API_URL + "signin", 
-    {
-      username,
-      password,
-    }, headers)
-    .then(res => {
-        if(res.data.accessToken) {
-            localStorage.setItem("user", JSON.stringify(res.data));
-        }
-        return res.data;
-    });
+  // return axios
+  //   .post(API_URL + "signin", 
+  //   {
+  //     username,
+  //     password,
+  //   }, headers)
+  //   .then(res => {
+  //       if(res.data.accessToken) {
+  //           localStorage.setItem("user", JSON.stringify(res.data));
+  //       }
+  //       return res.data;
+  //   });
 };
 
 const logout = () => {
