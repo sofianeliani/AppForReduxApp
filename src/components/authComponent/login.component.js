@@ -49,7 +49,7 @@ const Login = (props) => {
   //       },
   //       credentials: 'include',
   //       body: JSON.stringify(userCredentials)
-  //     })
+  //       })
   //       .then(response => response.json())
   //       .then(data => localStorage.setItem('user', JSON.stringify(data)))
   //       .catch(err => {
@@ -69,7 +69,7 @@ const Login = (props) => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      dispatch(login(username, password, {withCredentials: 'include'}))
+      dispatch(login(username, password))
         .then(() => {
           props.history.push("/profile");
           window.location.reload();

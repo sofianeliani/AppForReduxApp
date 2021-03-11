@@ -24,7 +24,15 @@ const login = (username, password) => {
     {
       username,
       password,
-    }, {withCredentials: 'include'})
+    }, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    credentials: 'include',
+    body: JSON.stringify(userCredentials)
+    })
     .then(res => {
         if(res.data.accessToken) {
             localStorage.setItem("user", JSON.stringify(res.data));
