@@ -17,6 +17,28 @@ const register = (username, email, password) => {
   }, headers)
 };
 
+const login2 = (username, password) => {
+  return fetch(API_URL + 'signin', {
+    method: 'POST',
+    headers: headers,
+    body: {
+      username: username,
+      password: password
+    }
+  })
+  .then(response => {
+    response.json();
+  })
+  .then(data => {
+    if(data.accessToken){
+      localStorage.setItem("user", JSON.stringify(data.accessToken));
+    }
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
+
 const login = (username, password) => {
   return axios
     .post(API_URL + "signin", 
