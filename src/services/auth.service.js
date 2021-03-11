@@ -14,9 +14,7 @@ const register = (username, email, password) => {
     username,
     email,
     password,
-  }, {
-    headers
-  })
+  }, headers)
 };
 
 const login = (username, password) => {
@@ -25,9 +23,7 @@ const login = (username, password) => {
     {
       username,
       password,
-    }, {
-      headers
-    })
+    }, headers)
     .then(res => {
         if(res.data.accessToken) {
             localStorage.setItem("user", JSON.stringify(res.data));
