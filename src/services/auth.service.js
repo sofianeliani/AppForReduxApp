@@ -2,11 +2,9 @@ import axios from "axios";
 
 const API_URL = "http://18.185.46.151/auth/";
 
-const options = {
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  }
+const headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
 };
 
 
@@ -15,44 +13,45 @@ const register = (username, email, password) => {
     username,
     email,
     password,
-  }, options)
+  }, headers)
 };
 
 
 const login = (username, password) => {
-      return fetch('http://18.185.46.151:3000/api/auth/signin', 
-      {
-        username,
-        password,
-      },
-      {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        credentials: 'include'
-        })
-        .then(res => {
-          if(res.data.accessToken) {
-            localStorage.setItem("user", JSON.stringify(res.data));
-          }
-          return res.data;
-        });
-      }
 
-  // return axios
-  //   .post(API_URL + "signin", 
-  //   {
-  //     username,
-  //     password,
-  //   }, options)
-  //   .then(res => {
-  //       if(res.data.accessToken) {
-  //           localStorage.setItem("user", JSON.stringify(res.data));
-  //       }
-  //       return res.data;
-  //   });
+  // return fetch(API_URL + 'signin', {
+  //   method: 'POST',
+  //   headers: headers,
+  //   body: {
+  //     username: username,
+  //     password: password
+  //   }
+  // })
+  // .then(response => {
+  //   response.json();
+  // })
+  // .then(data => {
+  //   if(data.accessToken){
+  //     localStorage.setItem("user", JSON.stringify(data.accessToken));
+  //   }
+  // })
+  // .catch(err => {
+  //   console.log(err)
+  // })
+  return axios
+    .post(API_URL + "signin", 
+    {
+      username,
+      password,
+    }, headers)
+    .then(res => {
+        if(res.data.accessToken) {
+            localStorage.setItem("user", JSON.stringify(res.data));
+        }
+        return res.data;
+    });
+    
+};
 
 const logout = () => {
   localStorage.removeItem("user");
