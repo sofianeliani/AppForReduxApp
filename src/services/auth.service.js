@@ -18,26 +18,6 @@ const register = (username, email, password) => {
 
 
 const login = (username, password) => {
-
-  // return fetch(API_URL + 'signin', {
-  //   method: 'POST',
-  //   headers: headers,
-  //   body: {
-  //     username: username,
-  //     password: password
-  //   }
-  // })
-  // .then(response => {
-  //   response.json();
-  // })
-  // .then(data => {
-  //   if(data.accessToken){
-  //     localStorage.setItem("user", JSON.stringify(data.accessToken));
-  //   }
-  // })
-  // .catch(err => {
-  //   console.log(err)
-  // })
   return axios
     .post(API_URL + "signin", 
     {
@@ -46,6 +26,7 @@ const login = (username, password) => {
     }, headers)
     .then(res => {
         if(res.data.accessToken) {
+          console.log("Nique tes morts !")
             localStorage.setItem("user", JSON.stringify(res.data));
         }
         return res.data;
