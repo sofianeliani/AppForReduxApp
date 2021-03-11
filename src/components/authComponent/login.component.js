@@ -69,7 +69,7 @@ const Login = (props) => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      dispatch(login(username, password))
+      dispatch(login(username, password, {withCredentials: 'include'}))
         .then(() => {
           props.history.push("/profile");
           window.location.reload();
