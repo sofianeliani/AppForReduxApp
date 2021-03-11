@@ -7,24 +7,28 @@ const headers = {
   'Accept': 'application/json'
 };
 
+const instance = axios.create({
+  withCredentials: true,
+  baseURL: API_URL
+})
 
 const register = (username, email, password) => {
-  return axios.post(API_URL + "signup", {
+  return instance.post(API_URL + "signup", {
     username,
     email,
     password,
-  }, headers)
+  })
 };
 
 
 const login = (username, password) => {
 
-  return axios
+  return instance
     .post(API_URL + "signin", 
     {
       username,
       password,
-    }, {withCredentials: true})
+    })
     .then(res => {
         if(res.data.accessToken) {
             localStorage.setItem("user", JSON.stringify(res.data));
