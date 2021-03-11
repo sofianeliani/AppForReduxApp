@@ -99,7 +99,7 @@ const Login = (props) => {
     //     })
     // } else {
     //   setLoading(false);
-    // }
+    }
   };
 
   if (isLoggedIn) {
