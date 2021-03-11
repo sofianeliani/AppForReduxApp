@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 
@@ -19,6 +19,7 @@ const required = (value) => {
 };
 
 const Login = (props) => {
+
   const form = useRef();
   const checkBtn = useRef();
 
@@ -40,6 +41,19 @@ const Login = (props) => {
     const password = e.target.value;
     setPassword(password);
   };
+
+  useEffect(() => {
+    fetch('http://18.185.46.151:3000/api/users', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+  })
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -67,6 +81,7 @@ const Login = (props) => {
   }
 
   return (
+
     <div className="container">
       <div className="lg:flex">
             <div className="lg:w-1/2 xl:max-w-screen-sm">
@@ -171,7 +186,6 @@ const Login = (props) => {
                 </div>
             </div>
         </div>
-      
 
     </div>
   );
