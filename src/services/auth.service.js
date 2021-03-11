@@ -26,7 +26,6 @@ const login = (username, password) => {
     }, headers)
     .then(res => {
         if(res.data.accessToken) {
-          console.log("Nique tes morts !")
             localStorage.setItem("user", JSON.stringify(res.data));
         }
         return res.data;
