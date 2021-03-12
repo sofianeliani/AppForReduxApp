@@ -70,7 +70,13 @@ const Login = (props) => {
         credentials: 'include',
         body: JSON.stringify(userCredentials)
         })
-        .then(response => response.json())
+        .then(
+        dispatch(login(username, password))
+          .then(() => {
+            props.history.push("/profile");
+            window.location.reload();
+          })
+        )
         .then(data => localStorage.setItem('user', JSON.stringify(console.log(data))))
         .catch(err => {
           console.log(err)
