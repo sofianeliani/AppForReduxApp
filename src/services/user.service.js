@@ -15,7 +15,6 @@ const getUserBoard = () => {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        authHeader() 
       },
       credentials: 'include'
       })
