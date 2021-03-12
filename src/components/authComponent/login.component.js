@@ -43,23 +43,44 @@ const Login = (props) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+    userCredentials = {
+      username: username,
+      password: password
+    }
     setLoading(true);
 
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      dispatch(login(username, password))
-        .then(() => {
-          props.history.push("/profile");
-          window.location.reload();
-        })
-        .catch(() => {
-          setLoading(false);
-        });
-    } else {
-      setLoading(false);
-    }
+    //   dispatch(login(username, password))
+    //     .then(() => {
+    //       props.history.push("/profile");
+    //       window.location.reload();
+    //     })
+    //     .catch(() => {
+    //       setLoading(false);
+    //     });
+    // } else {
+    //   setLoading(false);
+    // }
+    fetch('http://18.157.163.253/api/auth/signin', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+      body: JSON.stringify(userCredentials)
+      })
+      .then(response => response.json())
+      .then(data => localStorage.setItem('user', JSON.stringify(data)))
+      .catch(err => {
+        console.log(err)
+        setLoading(false);
+      })
+  } else {
+    setLoading(false);
+  }
   };
 
   if (isLoggedIn) {
