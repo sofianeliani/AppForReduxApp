@@ -43,10 +43,6 @@ const Login = (props) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // let userCredentials = {
-    //   username: username,
-    //   password: password
-    // }
 
     setLoading(true);
 
@@ -61,23 +57,8 @@ const Login = (props) => {
         .catch(() => {
           setLoading(false);
         });
-    // fetch('http://18.185.46.151:3000/api/auth/signin', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //     credentials: 'include',
-    //     body: JSON.stringify(userCredentials)
-    //     })
-    //     .then(response => response.json())
-    //     .then(data => localStorage.setItem('user', JSON.stringify(data)))
-    //     .catch(err => {
-    //       console.log(err)
-    //       setLoading(false);
-    //     })
-    // } else {
-    //   setLoading(false);
+    } else {
+      setLoading(false);
     }
   };
 
