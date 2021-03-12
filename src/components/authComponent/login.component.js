@@ -43,10 +43,10 @@ const Login = (props) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const userCredentials = {
-      username: username,
-      password: password
-    }
+    // const userCredentials = {
+    //   username: username,
+    //   password: password
+    // }
     setLoading(true);
 
     form.current.validateAll();

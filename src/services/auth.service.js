@@ -16,6 +16,10 @@ const register = (username, email, password) => {
 };
 
 const login = (username, password) => {
+  const userCredentials = {
+    username: username,
+    password: password
+  }
   fetch('http://54.93.196.62:3000/api/auth/signin', {
     method: 'POST',
     headers: {
@@ -29,7 +33,6 @@ const login = (username, password) => {
     .then(data => localStorage.setItem('user', JSON.stringify(data)))
     .catch(err => {
       console.log(err)
-      setLoading(false);
     })
 };
 
