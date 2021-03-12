@@ -69,7 +69,7 @@ const Login = (props) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      // credentials: 'include',
+      credentials: 'include',
       body: JSON.stringify(userCredentials)
       })
       .then(response => response.json())
