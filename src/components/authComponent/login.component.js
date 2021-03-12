@@ -72,15 +72,12 @@ const Login = (props) => {
       credentials: 'include',
       body: JSON.stringify(userCredentials)
       })
-      dispatch(login(username, password))
-        .then(() => {
-          props.history.push("/profile");
-          window.location.reload();
-        })
-        .catch(() => {
-          setLoading(false);
-        });
-
+      .then(response => response.json())
+      .then(data => localStorage.setItem('user', JSON.stringify(data)))
+      .catch(err => {
+        console.log(err)
+        setLoading(false);
+      })
   } else {
     setLoading(false);
   }
