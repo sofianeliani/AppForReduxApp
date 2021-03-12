@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://54.93.196.62/auth/";
+const API_URL = "http://54.93.196.62:3000/auth/";
 
 const headers = {
   'Content-Type': 'application/json',
