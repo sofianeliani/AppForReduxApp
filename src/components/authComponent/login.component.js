@@ -64,6 +64,7 @@ const Login = (props) => {
     //   setLoading(false);
     // }
     fetch('http://18.157.163.253/api/auth/signin', {
+      mode: 'no-cors',
       method: 'POST',
       headers: {
         'Accept': 'application/json',
