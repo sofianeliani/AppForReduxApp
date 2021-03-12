@@ -20,7 +20,7 @@ const login = (username, password) => {
     .post(API_URL + "signin", {
       username,
       password,
-    })
+    }, headers)
     .then(res => {
         if(res.data.accessToken) {
             localStorage.setItem("user", JSON.stringify(res.data));
