@@ -43,10 +43,10 @@ const Login = (props) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // let userCredentials = {
-    //   username: username,
-    //   password: password
-    // }
+    let userCredentials = {
+      username: username,
+      password: password
+    }
 
     setLoading(true);
 
@@ -195,6 +195,8 @@ const Login = (props) => {
 
     </div>
   );
+  };
+  };
 };
 
 export default Login;
