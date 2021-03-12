@@ -43,7 +43,7 @@ const Login = (props) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    userCredentials = {
+    const userCredentials = {
       username: username,
       password: password
     }
