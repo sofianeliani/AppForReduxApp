@@ -4,7 +4,7 @@ import authHeader from "./auth-header";
 const API_URL = "http://54.93.196.62/api/";
 
 const getPublicContent = () => {
-  return axios.get(API_URL + "content");
+  return axios.get(API_URL + "content", { headers: authHeader() });
 };
 
 const getUserBoard = () => {
