@@ -81,7 +81,7 @@ const Login = (props) => {
   // } else {
   //   setLoading(false);
   // }
-  // };
+  };
 
   if (isLoggedIn) {
     return <Redirect to="/profile" />;
