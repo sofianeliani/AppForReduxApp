@@ -61,7 +61,12 @@ const Login = (props) => {
       //   .catch(() => {
       //     setLoading(false);
       //   });
-    fetch('http://18.185.46.151:3000/api/auth/signin', {
+    fetch('http://18.185.46.151:3000/api/auth/signin', 
+        {
+          username,
+          password
+        },
+        {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
