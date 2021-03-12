@@ -8,7 +8,17 @@ const getPublicContent = () => {
 };
 
 const getUserBoard = () => {
-  return axios.get(API_URL + "usercontent", { headers: authHeader() });
+  // return axios.get(API_URL + "usercontent", { headers: authHeader() });
+  // return fetch.get(API_URL + "usercontent", { headers: authHeader() });
+  fetch('http://54.93.196.62:3000/api/usercontent', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        authHeader() 
+      },
+      credentials: 'include'
+      })
 };
 
 const getAdminBoard = () => {
