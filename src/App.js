@@ -110,8 +110,10 @@ const App = () => {
                   <button class="inline-flex items-center p-2  rounded-lg">
                     <span class="sr-only">User Menu</span>
                     <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
-                      <span class="font-semibold text-white">Grace Simmons</span>
-                      <span class="text-sm text-white">Lecturer</span>
+                      <span class="font-semibold text-white">
+                      {currentUser.username}
+                      </span>
+                      <span class="text-sm text-white">Developer</span>
                     </div>
                     <span class="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
                       <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="user profile photo" class="h-full w-full object-cover"/>
