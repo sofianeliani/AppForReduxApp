@@ -75,8 +75,7 @@ const Login = (props) => {
       .then(response => response.json())
       .then(data => localStorage.setItem('user', JSON.stringify(data)))
       .then(
-        props.history.push("/profile"),
-        window.location.reload()
+        <Redirect to="/profile" />
       )
       .catch(err => {
         console.log(err)
