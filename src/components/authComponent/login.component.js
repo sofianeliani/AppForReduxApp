@@ -73,7 +73,7 @@ const Login = (props) => {
       body: JSON.stringify(userCredentials)
       })
       .then(response => response.json())
-      .then(data => localStorage.setItem('user', JSON.stringify(data)), window.location.reload();)
+      .then(data => localStorage.setItem('user', JSON.stringify(data)), window.location.reload())
       .catch(err => {
         console.log(err)
         setLoading(false);
