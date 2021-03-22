@@ -120,8 +120,7 @@ const Register = () => {
     } else {
       setSuccessful(false);
     }
-    };
-  }
+  };
 
   return (
     <div className="col-md-12">
@@ -243,5 +242,5 @@ const Register = () => {
 
     </div>
   );
-
+}
 export default Register;
