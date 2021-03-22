@@ -112,6 +112,7 @@ const Register = (props) => {
         // localStorage.setItem('user', JSON.stringify(data))
         props.history.push("/login");
         window.location.reload();
+        setSuccessful(true);
       })
       .catch(err => {
         console.log(err)
