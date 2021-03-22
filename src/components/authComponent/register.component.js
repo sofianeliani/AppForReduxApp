@@ -78,20 +78,50 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
 
+    const userCredentials = {
+      username: username,
+      email: email,
+      password: password
+    }
+
     setSuccessful(false);
 
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      dispatch(register(username, email, password))
-        .then(() => {
-          setSuccessful(true);
-        })
-        .catch(() => {
-          setSuccessful(false);
-        });
+      // dispatch(register(username, email, password))
+      //   .then(() => {
+      //     setSuccessful(true);
+      //   })
+      //   .catch(() => {
+      //     setSuccessful(false);
+      //   });
+
+      fetch('http://54.93.196.62:3000/api/auth/signup', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+      body: JSON.stringify(userCredentials)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("data after register : ", data)
+        // localStorage.setItem('user', JSON.stringify(data))
+        props.history.push("/login");
+        window.location.reload();
+      })
+      .catch(err => {
+        console.log(err)
+        setSuccessful(false);
+      })
+    } else {
+      setSuccessful(false);
     }
-  };
+    };
+  }
 
   return (
     <div className="col-md-12">
@@ -213,6 +243,5 @@ const Register = () => {
 
     </div>
   );
-};
 
 export default Register;
